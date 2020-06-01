@@ -1,0 +1,56 @@
+一、Git 基础
+1、Git 介绍
+Git 是世界上最先进的分布式版本控制系统
+2、Git与GitHub
+    2.1 两者区别
+    Git 是一个软件，一个记录一个或者若干个文件内容的变化。
+    GitHub 是一个可以放代码的网站。
+    2.2 GitHub注册
+    用户名 邮箱 密码
+    验证邮箱
+3、Git 安装
+下载后下一步到底安装
+选择安装位置时尽量不要有中文
+二、Git的使用
+1、本地仓库
+    1.1 工作流程
+    Git 本地操作的三个区域
+    工作区（working directory）：添加、编辑、修改文件动作
+    暂存区：暂存已经修改的文件最后统一提交到git仓库中
+    Git 仓库 （Git Repository）：最终确定的文件保存到仓库中，成为一个新的版本，且对他人可见 
+    git status 查询状态
+    git add . 上传文件  到暂存区
+    git status 查询状态
+    git commit -m "提交描述" 到仓库
+    git status 查询状态
+    1.2 本地仓库操作
+        1.2.1 安装好后需要做全局配置
+        $git config --global user.name "用户名" 
+        $git config --global user.email "邮箱地址"
+        检测设置的用户名
+        $git config --global user.name 回车
+        检测设置的邮箱地址
+        $git config --global user.email 回车
+        1.2.2 创建仓库
+        当使用git去管理项目时，项目可以是空目录也可以是非空目录。注意：目录中不要出现中文。
+        mkdir project 桌面上创建项目
+        cd project 进入到项目目录
+        git init 初始化仓库，让git知道，它需要管理这个目录。将隐藏的文件.git 显示出来。
+        1.2.3 仓库常用指令
+        git status 查看当前状态
+        git add 文件名 语法1：git add 文件名  语法2：git add 文件名1 文件名2 ... 语法3：git add .
+        git commit -m "注释内容"
+    1.3 时光穿梭机-版本回退
+        1.3.1 查看版本，确认回到的版本时间点
+        git log
+        git log -pretty=oneline 
+        1.3.2 回退操作
+        git reset --hard 版本号（金黄色）
+        1.3.3 回到未来
+        回到过去之后要想回到之前的最新的版本时，则需要指令去查询历史操作，已得到最新的commit id
+        git reflog
+        git reset --hard 版本号（不用写全，git自动识别，至少写前4位）
+
+
+
+
