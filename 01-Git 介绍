@@ -50,7 +50,26 @@ Git 是世界上最先进的分布式版本控制系统
         回到过去之后要想回到之前的最新的版本时，则需要指令去查询历史操作，已得到最新的commit id
         git reflog
         git reset --hard 版本号（不用写全，git自动识别，至少写前4位）
-
-
-
-
+2、远程操作
+    2.1 线上仓库建立
+        2.1.1 GitHub账号注册
+        注册后建立仓库repository，即项目
+    2.2 两种常规使用方式
+        2.2.1 基于http协议
+        GitHub上创建空目录，在本地打开git软件输入指令git clone 线上仓库地址，克隆到本地。
+        在仓库上做对应的操作（提交暂存区、提交本地仓库、提交线上仓库、拉取线上仓库）
+        git push ：首次提交线上仓库 git push  出现403致命错误是没有授权信息，不是任何人可以往线上仓库提交内容的，需要鉴权。
+        鉴权需要修改.git/config 文件
+        [remote "origin"]
+        url=http://github.com/taxuan-shangguan/project.git
+        改为 url=http://用户名:密码@github.com/taxuan-shangguan/project.git
+        修改后继续执行 git push ,刷新GitHub页面
+        git pull
+        2.2.2 基于ssh协议
+            1.与http协议的不同只是涉及到鉴权的方式不一样，其他都不受影响
+            2.需要自行安装OpenSSH
+                生成客户端公私钥文件：ssh-keygen -t rsa -C "注册邮箱"
+                将公钥上传到GitHub        
+                git中输入ssh-keygen -t rsa -C "注册邮箱" 回车回车直到出现以下图片内容 生成公钥.png
+                然后打开C盘中 用户/admin/.ssh/id_rsa.pub 使用代码器打开将内容复制，然后粘贴到 如图所示地方 GitHub添加公钥1.png 、GitHub添加公钥2.png 
+                
