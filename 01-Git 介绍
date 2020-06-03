@@ -1,70 +1,70 @@
 一、Git 基础
 1、Git 介绍
-Git 是世界上最先进的分布式版本控制系统
+    Git 是世界上最先进的分布式版本控制系统
 2、Git与GitHub
     2.1 两者区别
-    Git 是一个软件，一个记录一个或者若干个文件内容的变化。
-    GitHub 是一个可以放代码的网站。
+        Git 是一个软件，一个记录一个或者若干个文件内容的变化。
+        GitHub 是一个可以放代码的网站。
     2.2 GitHub注册
-    用户名 邮箱 密码
-    验证邮箱
+        用户名 邮箱 密码
+        验证邮箱
 3、Git 安装
-下载后下一步到底安装
-选择安装位置时尽量不要有中文
+    下载后下一步到底安装
+    选择安装位置时尽量不要有中文
 二、Git的使用
 1、本地仓库
     1.1 工作流程
-    Git 本地操作的三个区域
-    工作区（working directory）：添加、编辑、修改文件动作
-    暂存区：暂存已经修改的文件最后统一提交到git仓库中
-    Git 仓库 （Git Repository）：最终确定的文件保存到仓库中，成为一个新的版本，且对他人可见 
-    git status 查询状态
-    git add . 上传文件  到暂存区
-    git status 查询状态
-    git commit -m "提交描述" 到仓库
-    git status 查询状态
+        Git 本地操作的三个区域
+        工作区（working directory）：添加、编辑、修改文件动作
+        暂存区：暂存已经修改的文件最后统一提交到git仓库中
+        Git 仓库 （Git Repository）：最终确定的文件保存到仓库中，成为一个新的版本，且对他人可见 
+        git status 查询状态
+        git add . 上传文件  到暂存区
+        git status 查询状态
+        git commit -m "提交描述" 到仓库
+        git status 查询状态
     1.2 本地仓库操作
         1.2.1 安装好后需要做全局配置
-        $git config --global user.name "用户名" 
-        $git config --global user.email "邮箱地址"
-        检测设置的用户名
-        $git config --global user.name 回车
-        检测设置的邮箱地址
-        $git config --global user.email 回车
+            $git config --global user.name "用户名" 
+            $git config --global user.email "邮箱地址"
+            检测设置的用户名
+            $git config --global user.name 回车
+            检测设置的邮箱地址
+            $git config --global user.email 回车
         1.2.2 创建仓库
-        当使用git去管理项目时，项目可以是空目录也可以是非空目录。注意：目录中不要出现中文。
-        mkdir project 桌面上创建项目
-        cd project 进入到项目目录
-        git init 初始化仓库，让git知道，它需要管理这个目录。将隐藏的文件.git 显示出来。
+            当使用git去管理项目时，项目可以是空目录也可以是非空目录。注意：目录中不要出现中文。
+            mkdir project 桌面上创建项目
+            cd project 进入到项目目录
+            git init 初始化仓库，让git知道，它需要管理这个目录。将隐藏的文件.git 显示出来。
         1.2.3 仓库常用指令
-        git status 查看当前状态
-        git add 文件名 语法1：git add 文件名  语法2：git add 文件名1 文件名2 ... 语法3：git add .
-        git commit -m "注释内容"
+            git status 查看当前状态
+            git add 文件名 语法1：git add 文件名  语法2：git add 文件名1 文件名2 ... 语法3：git add .
+            git commit -m "注释内容"
     1.3 时光穿梭机-版本回退
         1.3.1 查看版本，确认回到的版本时间点
-        git log
-        git log -pretty=oneline 
+            git log
+            git log -pretty=oneline 
         1.3.2 回退操作
-        git reset --hard 版本号（金黄色）
+            git reset --hard 版本号（金黄色）
         1.3.3 回到未来
-        回到过去之后要想回到之前的最新的版本时，则需要指令去查询历史操作，已得到最新的commit id
-        git reflog
-        git reset --hard 版本号（不用写全，git自动识别，至少写前4位）
+            回到过去之后要想回到之前的最新的版本时，则需要指令去查询历史操作，已得到最新的commit id
+            git reflog
+            git reset --hard 版本号（不用写全，git自动识别，至少写前4位）
 2、远程操作
     2.1 线上仓库建立
         2.1.1 GitHub账号注册
         注册后建立仓库repository，即项目
     2.2 两种常规使用方式
         2.2.1 基于http协议
-        GitHub上创建空目录，在本地打开git软件输入指令git clone 线上仓库地址，克隆到本地。
-        在仓库上做对应的操作（提交暂存区、提交本地仓库、提交线上仓库、拉取线上仓库）
-        git push ：首次提交线上仓库 git push  出现403致命错误是没有授权信息，不是任何人可以往线上仓库提交内容的，需要鉴权。
-        鉴权需要修改.git/config 文件
-        [remote "origin"]
-        url=http://github.com/taxuan-shangguan/project.git
-        改为 url=http://用户名:密码@github.com/taxuan-shangguan/project.git
-        修改后继续执行 git push ,刷新GitHub页面
-        git pull
+            GitHub上创建空目录，在本地打开git软件输入指令git clone 线上仓库地址，克隆到本地。
+            在仓库上做对应的操作（提交暂存区、提交本地仓库、提交线上仓库、拉取线上仓库）
+            git push ：首次提交线上仓库 git push  出现403致命错误是没有授权信息，不是任何人可以往线上仓库提交内容的，需要鉴权。
+            鉴权需要修改.git/config 文件
+            [remote "origin"]
+            url=http://github.com/taxuan-shangguan/project.git
+            改为 url=http://用户名:密码@github.com/taxuan-shangguan/project.git
+            修改后继续执行 git push ,刷新GitHub页面
+            git pull：$ git pull origin master    $ git push -u origin master
         2.2.2 基于ssh协议
             1.与http协议的不同只是涉及到鉴权的方式不一样，其他都不受影响
             2.需要自行安装OpenSSH
@@ -72,4 +72,24 @@ Git 是世界上最先进的分布式版本控制系统
                 将公钥上传到GitHub        
                 git中输入ssh-keygen -t rsa -C "注册邮箱" 回车回车直到出现以下图片内容 生成公钥.png
                 然后打开C盘中 用户/admin/.ssh/id_rsa.pub 使用代码器打开将内容复制，然后粘贴到 如图所示地方 GitHub添加公钥1.png 、GitHub添加公钥2.png 
-                
+    2.3 分支管理
+        2.3.1 分支的相关指令
+            git branch  查看分支 当查看当前分支时会有一个特殊标记“ * ”。
+            git branch 分支名  创建分支
+            git checkout 分支名   切换分支
+            注意：对于新分支可使用 “git checkout -b 分支名”  指令来切换分支。-b表示创建并切换，相当于2个指令的操作。
+            git branch -d 分支名  删除分支  注意删除分支时一定要注意先退出要删除的分支，然后才能删除。
+            git merge 被合并的分支名   合并分支
+            合并所有分之后，需要把master分支提交到线上远程仓库中。
+    2.4 冲突的产生与解决
+        2.4.1 模拟冲突的产生
+            同事下班后修改了代码，此时我本地仓库内容与线上是不一致的。
+            第二天上班后我没有git pull ，而是直接修改了本地对应文件的内容
+            下班的时候需要将代码修改上传到线上仓库
+            git push 后系统提示错误 hint: 'git pull ...') before pushing again. 如图产生冲突.png 提示我们要在git push 之前先执行 git pull
+        2.4.2 解决冲突：
+            先git pull 出现CONFLICT (content): Merge conflict in README.md ；此时git已经将线上与本地仓库的冲突合并到了README.md文件中
+            打开合并后的冲突文件，解决冲突。
+            解决方法：这时需要和同事托马斯进行商量，这个代码怎么保留合适，然后将代码删减好后再做提交即可。
+            当提交时出现了报错，信息如图 git push 报错.png ，百度搜索后给出了解决方法  如图git push 后报错解决方法.png
+三、git实用技巧
